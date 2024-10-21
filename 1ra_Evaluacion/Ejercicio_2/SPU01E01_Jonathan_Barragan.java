@@ -3,13 +3,13 @@ import java.util.Arrays;
 
 public class SPU01E01_Jonathan_Barragan {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException { //
         if (args.length == 0) {
             System.err.println("Se necesita un programa a ejecutar");
             System.exit(-1);
         }
 
-        // Crear el proceso con los argumentos proporcionados
+        // Crea el proceso hijo, que ejecuta el pedido con las opciones correspondientes
         ProcessBuilder pb = new ProcessBuilder(args);
         try {
             // Iniciar el proceso hijo
@@ -31,4 +31,17 @@ public class SPU01E01_Jonathan_Barragan {
     }
 }
 
-/* s */
+
+
+
+
+
+
+/* Escribe una clase llamada SPU01E01_nombre_apellido que reciba como argumentos
+el pedido y las opciones del pedido que se desea ejecutar. El programa debe
+crear un proceso hijo que ejecute el pedido con las opciones correspondientes,
+mostrando un mensaje de error en caso de que no se realizara correctamente la ejecución.
+El padre debe esperar a que el hijo acabe por informar si se ha producido alguna anomalía en
+la ejecución del hijo.
+Sube al Classroom el archivo .java con el nombre indicado. Por ejemplo:
+SPU01E01_nombre_apellido.java */
