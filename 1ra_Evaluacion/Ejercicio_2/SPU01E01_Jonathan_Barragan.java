@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -17,10 +18,10 @@ public class SPU01E01_Jonathan_Barragan {
 
             // El padre espera a que el proceso hijo termine
             int retorno = process.waitFor();
-            
+
             // Informar si el proceso se ejecutó correctamente o no
             System.out.println("La ejecución de " + Arrays.toString(args) + " retorna " + retorno);
-            
+
         } catch (IOException ex) {
             System.err.println("Error de Entrada/Salida durante la ejecución del comando.");
             System.exit(-1);
@@ -30,8 +31,6 @@ public class SPU01E01_Jonathan_Barragan {
         }
     }
 }
-
-
 
 
 
