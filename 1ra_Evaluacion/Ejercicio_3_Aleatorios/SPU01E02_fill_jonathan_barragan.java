@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class SPU01E02_fill_nom_llinatge {
+public class SPU01E02_fill_jonathan_barragan {
     public static void main(String[] args) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
