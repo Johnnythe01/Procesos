@@ -3,33 +3,30 @@ package SPU01CP_jonathan_barragan;
 import java.io.*;
 
 public class SPU01CP_jonathan_barragan {
+
     public static void main(String[] args) {
-    try {
+        try {
 
-    // Crea el proceso hijo, que ejecuta el comando: ls -la
-    ProcessBuilder pb1 = new ProcessBuilder("ls", "-la");
-    Process process1 = pb1.start();
+            // Crea el proceso hijo, que ejecuta el comando: ls -la
+            ProcessBuilder pb1 = new ProcessBuilder("ls", "-la");
+            Process process1 = pb1.start();
 
-    // Crea el segundo proceso hijo, que ejecuta: tr "d" "D"
-    ProcessBuilder pb2 = new ProcessBuilder("tr", "d", "D");
-    Process process2 = pb2.start();
+            // Crea el segundo proceso hijo, que ejecuta: tr "d" "D"
+            ProcessBuilder pb2 = new ProcessBuilder("tr", "d", "D");
+            Process process2 = pb2.start();
 
-    // Redirige la salida estándar del primer proceso en la entrada estándar del segundo
-    try (BufferedReader reader = new BufferedReader(new InputStreamReader(process1.getInputStream()));
-    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process2.getOutputStream()))
+            // Redirige la salida estándar del primer proceso en la entrada estándar del segundo
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(process1.getInputStream())); BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process2.getOutputStream()))) {
 
-    
-        ) {
+                // Lee la salida del primer proceso y la escribe en el segundo
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    writer.write(line);
+                    writer.newLine();
+                }
+            }
 
-            // Lee la salida del primer proceso y la escribe en el segundo
-            String line;
-        while ((line = reader.readLine()) != null) {
-            writer.write(line);
-            writer.newLine();
-        }
-    }
-
-    // Mostrar la salida del segundo proceso
+            // Mostrar la salida del segundo proceso
             try (BufferedReader outputReader = new BufferedReader(new InputStreamReader(process2.getInputStream()))) {
                 String outputLine;
                 while ((outputLine = outputReader.readLine()) != null) {
@@ -37,16 +34,15 @@ public class SPU01CP_jonathan_barragan {
                 }
             }
 
+            // Espera a que los procesos hijos terminen
+            proccess1.waitFor();
+
+            proccess2.waitFor();
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
-
-    // Espera a que los procesos hijos terminen
-    proccess1.waitFor ();
-
-    proccess2.waitFor ();
-
-} catch (IOException | InterruptedException e) {
-    e.printStackTrace();
-}
 }
 /*
 En este caso práctico se desarrollará una solución multiproceso al problema de
