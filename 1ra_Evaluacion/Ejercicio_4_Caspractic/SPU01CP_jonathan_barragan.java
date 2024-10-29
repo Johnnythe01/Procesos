@@ -44,6 +44,8 @@ public class SPU01CP_jonathan_barragan {
         }
     }
 }
+
+
 /*
 En este caso práctico se desarrollará una solución multiproceso al problema de
 sincronizar y comunicar dos procesos hijos creados a partir de una proceso padre. La
