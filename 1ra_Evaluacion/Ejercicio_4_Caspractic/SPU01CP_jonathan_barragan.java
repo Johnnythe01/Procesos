@@ -1,43 +1,29 @@
 package SPU01CP_jonathan_barragan;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class SPU01CP_jonathan_barragan {
 
     public static void main(String[] args) {
         try {
-
-            // Crea el proceso hijo, que ejecuta el comando: ls -la
-            ProcessBuilder pb1 = new ProcessBuilder("ls", "-la");
+            // Comando para listar archivos en Windows
+            ProcessBuilder pb1 = new ProcessBuilder("cmd", "/c", "dir");
             Process process1 = pb1.start();
 
-            // Crea el segundo proceso hijo, que ejecuta: tr "d" "D"
-            ProcessBuilder pb2 = new ProcessBuilder("tr", "d", "D");
-            Process process2 = pb2.start();
-
-            // Redirige la salida estándar del primer proceso en la entrada estándar del segundo
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(process1.getInputStream())); BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process2.getOutputStream()))) {
-
-                // Lee la salida del primer proceso y la escribe en el segundo
+            // Lee la salida del proceso y realiza la conversión de "d" a "D"
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(process1.getInputStream()))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    writer.write(line);
-                    writer.newLine();
+                    // Reemplaza todas las "d" por "D" en la salida de "dir"
+                    line = line.replace("d", "D");
+                    System.out.println(line);
                 }
             }
 
-            // Mostrar la salida del segundo proceso
-            try (BufferedReader outputReader = new BufferedReader(new InputStreamReader(process2.getInputStream()))) {
-                String outputLine;
-                while ((outputLine = outputReader.readLine()) != null) {
-                    System.out.println(outputLine);
-                }
-            }
-
-            // Espera a que los procesos hijos terminen
-            proccess1.waitFor();
-
-            proccess2.waitFor();
+            // Espera a que el proceso termine
+            process1.waitFor();
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
