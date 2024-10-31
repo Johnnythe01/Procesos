@@ -1,5 +1,3 @@
-package SPU01CP_jonathan_barragan;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
