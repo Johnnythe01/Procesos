@@ -26,7 +26,6 @@ public class SPU01CP_jonathan_barragan {
             process1.waitFor();
 
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }
