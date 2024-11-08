@@ -32,7 +32,7 @@ public class SPU01CP_jonathan_barragan {
 /*
 En este caso práctico se desarrollará una solución multiproceso al problema de
 sincronizar y comunicar dos procesos hijos creados a partir de una proceso padre. La
-idea es escribir una clave Java que ejecute dos comandos (cada hijo creado ejecutará
+idea es escribir una clase Java que ejecute dos comandos (cada hijo creado ejecutará
 uno de ellos) con sus respectivos argumentos y redirija la salida estándar del
 primero en la entrada estándar del segundo. Por sencillez, los comandados y sus
 argumentos irán directamente escritos en el código del programa para no complicar
@@ -50,7 +50,7 @@ Drwxr-xr-x 2 user users 4056 2011-01-24 17:49 Dir3
 Drwxr-xr-x 2 user users 4096 2011-01-24 11:48 Dir4
 
 Suba al Classroom el archivo:
-SPU01CP_nombre_linaje.java
+SPU01CP_nombre_apellido.java
 Se debe entregar el ejercicio resuelto y una memoria donde se expliquen los pasos seguidos
 para resolver el ejercicio.
 */
