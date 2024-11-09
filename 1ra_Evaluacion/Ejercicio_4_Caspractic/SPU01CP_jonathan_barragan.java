@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class SPU01CP_jonathan_barragan {
+public class SPU01CP_Jonathan_Barragan {
 
     public static void main(String[] args) {
         try {
