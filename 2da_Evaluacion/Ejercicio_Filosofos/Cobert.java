@@ -1,4 +1,4 @@
-package 2da_Evaluacion.Ejercicio_Filosofos;
+package Ejercicio_Filosofos;
 
 public class Cobert {
 
