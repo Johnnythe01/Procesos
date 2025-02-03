@@ -4,7 +4,6 @@ public class Filosof extends Thread {
 	private static Random r = new Random();
 	
 	private final Cobert esquerre, dret;
-	
 	String nom;
 
 	public Filosof(String nom, Cobert esquerra, Cobert dreta) {
@@ -15,7 +14,6 @@ public class Filosof extends Thread {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		while (true) {
 			pensar();
 			menjar();
@@ -31,6 +29,10 @@ public class Filosof extends Thread {
 		System.out.println(nom + " te fam i vol agafar el cobert esquerre");
 		esperar(r.nextInt(400, 600));
 		
+		// Si el filosofo es par, primero coge el derecho y luego el izquierdo
+		if (Integer.parseInt(nom.split(" ")[1]) % 2 == 0) {
+			
+		} else {
 		synchronized (esquerre) {
 			System.out.println(nom + " agafa el cobert esquerre. Ara vol agafar el dret.");
 			esperar(r.nextInt(400, 600));
@@ -44,6 +46,7 @@ public class Filosof extends Thread {
 		}
 		System.out.println(nom + " amolla el cobert esquerre");
 	}
+}
 	
 	private void esperar(int ms) {
 		try {

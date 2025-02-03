@@ -4,8 +4,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		String[] noms = { "Aristoteles", "Platon", "Socrates", "Epicur"};
 		
-		Cobert [] coberts = new Cobert [noms.length];
-				
+		Cobert [] coberts = new Cobert[noms.length];
 		for (int i = 0; i < coberts.length; i++) {
 			coberts[i] = new Cobert ();
 		}
