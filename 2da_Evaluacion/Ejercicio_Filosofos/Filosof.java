@@ -23,27 +23,27 @@ public class Filosof extends Thread {
 	}
 	
 	private void pensar() {
-		System.out.println(nom + " pensant");
+		System.out.println(nom + " pensando");
 		esperar(r.nextInt(2000, 3000));
 	}
 	
 	private void menjar() {
-		// metemos un if para que si es par, coja el cubierto izquierdo primero
+		// metemos un if para que si es par, coja los cubiertos en orden, primero izquierdo y luego derecho. Si es impar, al reves, asi evitamos el deadlock
         try {
-            if (esParell) { 
-                esquerre.agafar();
+            if (esParell) {
+                esquerre.agafar(); // usando este metodo de la clase Cobert, cogen el cubierto izquierdo
                 System.out.println(nom + " ha tomado el cubierto izquierdo");
-                dret.agafar();
-            } else {
+                dret.agafar(); // y con este el derecho
+            } else { // si es impar coge el cubierto derecho primero y hace el proceso al reves
                 dret.agafar();
                 System.out.println(nom + " ha tomado el cubierto derecho");
                 esquerre.agafar();
             }
             
-            System.out.println(nom + " está comiendo");
+            System.out.println(nom + " esta comiendo");
             esperar(r.nextInt(2000, 3000));
             
-            esquerre.deixar();
+            esquerre.deixar(); // usando este metodo de la clase Cobert, dejan el cubierto izquierdo y luego el derecho, asi se liberan para los demas filosofos
             dret.deixar();
         } catch (InterruptedException e) {
             e.printStackTrace();
