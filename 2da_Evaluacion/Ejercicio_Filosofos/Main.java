@@ -13,7 +13,7 @@ public class Main {
 		for (int i=0; i < filosofs.length; i++) {
 			Cobert esquerra = coberts[i % coberts.length];
 			Cobert dreta = coberts[(i + 1) % coberts.length];
-			filosofs[i] = new Filosof (noms[i], esquerra, dreta, i % 2 == 0); // añado un booleano para saber si el filosofo es par o impar
+			filosofs[i] = new Filosof (noms[i], esquerra, dreta, i % 2 == 0); // aqui solo añado el booleano para saber si el filosofo es par o impar
 		}
 
 		for (Filosof f: filosofs) {
